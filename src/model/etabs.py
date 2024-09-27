@@ -31,6 +31,8 @@ class EtabsModel(StructuralModel):
         for element in self.model.elements:
             if str(getattr(element, 'type', '')) == 'ElementType1D.Column':
                 columns.append(element)
+            else:
+                self.automate_results.elements_not_selected.append(element.id)
         return columns
 
     def parse_length(self, element_1d) -> float:
