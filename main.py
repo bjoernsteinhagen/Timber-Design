@@ -1,7 +1,4 @@
 from enum import Enum
-from specklepy.api.client import SpeckleClient
-from specklepy.api import operations
-from specklepy.transports.server import ServerTransport
 from pydantic import Field
 from speckle_automate import (
     AutomateBase,
@@ -107,7 +104,7 @@ def automate_function(
     design_code = code_loader(design_code=function_inputs.chosen_design_code.value,
                               design_parameters=
                               {'service_class': 1,
-                               'load_duration_class': function_inputs.loaded_duration_class}
+                               'load_duration_class': function_inputs.chosen_load_duration_class.value}
                               )
 
     structural_model = model_loader(source_application, automate_context.receive_version(), design_code)
