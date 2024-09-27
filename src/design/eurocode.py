@@ -69,7 +69,7 @@ class Eurocode(DesignCode):
         elif self.design_parameters['load_duration_class'] == 'Instantaneous':
             result = 1.1
         else:
-            return ValueError(f'Load duration class {self.design_parameters['load_duration_class']} not recognised')
+            return ValueError(f'Load duration class {self.design_parameters["load_duration_class"]} not recognised')
         self.calculation_log['Stability'].append(CalculationLog('k_mod', result, code='EN 1995-1-1:2004+A1:2008 (E), Table 3.1'))
         return result
 
