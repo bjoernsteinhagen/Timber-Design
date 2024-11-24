@@ -52,10 +52,12 @@ class StructuralModel(ABC):
 
     def create_column_objects(self):
         """Template method for getting columns and parsing attributes"""
-        is_designable = True
-        length, cross_section, material, internal_forces = None, None, None, None
         for column in self.filter_columns():
+            
+            is_designable = True
+            cross_section, material, internal_forces = None, None, None
             length = self.parse_length(column)
+
             try:
                 cross_section = self.parse_cross_section(column)
             except Exception:
